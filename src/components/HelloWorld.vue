@@ -1,52 +1,54 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
   <h1>{{ msg }}</h1>
-
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <span>{{ count }}</span>
+  <button @click="editCount">修改count</button><br />
+  <button @click="isRefs">isRef判断ref对象</button><br />
+  <span>{{ message }} -- {{ message.name }}</span>
+  <button @click="shallowRefs">shallowRefs修改ref对象</button><br />
+  <button @click="triggerRefs">triggerRefs修改ref对象某个属性</button><br />
 </template>
+<script setup lang="ts">
+import { ref, Ref, isRef, shallowRef, triggerRef } from 'vue'
+defineProps<{ msg: string }>()
+// -------------------- ref ------------------------
 
-<style scoped>
-a {
-  color: #42b983;
+// const count = ref<number>(0) // 定义方法1
+const count: Ref<number> = ref(0) // 定义方法2
+let notRef: number = 123
+
+// ref.value
+const editCount = () => {
+  count.value++
 }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
+// isRef
+const isRefs = () => {
+  console.log(isRef(count))
+  console.log(isRef(notRef))
 }
 
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+// shallowRef
+type Obj = {
+  name: string
+  age: number
 }
-</style>
+let message: Ref<Obj> = shallowRef({
+  name: '小满',
+  age: 19
+})
+const shallowRefs = () => {
+  message.value = {
+    //具备响应式
+    ...message.value,
+    name: '大满11'
+  }
+}
+
+// triggerRef
+const triggerRefs = () => {
+  message.value.name = 'damm' //不具备响应式
+  triggerRef(message) //强制更新dom
+}
+</script>
+
+<style scoped></style>
