@@ -1,16 +1,61 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite + antdV
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Project setup
+```
+npm install
+```
 
-## Recommended IDE Setup
+### Compiles and hot-reloads for development
+```
+npm run dev
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## Type Support For `.vue` Imports in TS
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+# 目录结构
+```bash
+# ├─ public                     # 静态资源
+# │   └─ favicon.ico            # favicon图标
+# │
+# ├─ src                        # 源代码文件夹
+# │   ├─ api                    # 接口
+# │   │   ├─ modules              # 接口模块
+# │   │   └─ index.ts             # 接口入口
+# │   ├─ assets                 # 静态资源 (打包会被编译)
+# │   │   ├─ css                  # 全局样式
+# │   │   ├─ icon                 # icon图标
+# │   │   └─ img                  # 图片
+# │   ├─ components             # 全局注册组件
+# │   │   ├─ TheCom1              # 组件1
+# │   │   └─ TheCom2              # 组件2
+# │   ├─ router                 # 路由
+# │   │   ├─ modules              # 饼图
+# │   │   └─ index.ts             # 导出弹窗
+# │   ├─ pinia                  # 全局 管理（暂未）
+# │   ├─ utils                  # 全局公用方法
+# │   │   └─ index.ts              # 入口
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
-
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+# │   ├─ views                  # views 所有页面
+# │   │   ├─ layout                 # 路由加载主页面
+# │   │   ├─ componets              # 通用组件（未全局注册）
+# │
+# ├── App.vue                  # 入口页面
+# ├── main.ts                  # 入口文件
+# │
+# ├── .env                     # 公共环境变量 （本地默认加载）
+# ├── .env.development         # 测试环境--环境变量
+# ├── .env.uat                 # 预线上环境--环境变量
+# ├── .env.production          # 线上环境--环境变量
+# │
+# │
+# ├── .gitignore                # git文件
+# ├── index.html                # 主页面
+# ├── package.json              # package.json
+# ├── tsconfig.json             # TS配置文件
+# └── tsconfig.node.json        # tsconfig.node.json
+# └── vite.config               # vite配置
+```
