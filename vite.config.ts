@@ -57,7 +57,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         'assets': resolve(__dirname, './src/assets'),
       },
     },
-    // 删除其他环境的打印
+    // 除测试环境删除其他环境的打印
     esbuild: {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
     },
