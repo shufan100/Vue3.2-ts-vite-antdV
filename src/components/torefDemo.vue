@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRef } from 'vue'
+import { toRef } from 'vue'
 
 const obj = {
   foo: 1,
