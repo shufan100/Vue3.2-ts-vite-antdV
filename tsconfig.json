@@ -14,7 +14,7 @@
 //     "skipLibCheck": true
 //   },
 //   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-//   "references": [{ "path": "./tsconfig.node.json" }]
+//   // "references": [{ "path": "./tsconfig.node.json" }]
 // }
 
 
@@ -42,12 +42,13 @@
     "skipLibCheck": true,
     "types": ["vite/client"],
     "removeComments": true,
-    "baseUrl": "/",
-    "paths": {
-      "/@/*": ["src/*"],
-      "/#/*": ["types/*"]
+    "baseUrl": "./", //解析非相对模块的基础地址，默认是当前目录
+    "paths": { //// 路径映射，相对于baseUrl
+      "@": ["src/*"],
+      "#/*": ["types/*"]
     }
   },
+  // 以下文件都校验ts
   "include": [
     "tests/**/*.ts",
     "src/**/*.ts",

@@ -1,17 +1,19 @@
-// import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 import { loadEnv } from 'vite';
 import type { UserConfig, ConfigEnv } from 'vite';
 import vue from '@vitejs/plugin-vue'
 // import path from 'path';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 import { wrapperEnv } from './build/utils';
 
 // defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
-export default ({ command, mode }: ConfigEnv): UserConfig => {
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   console.log(command, mode, '===')
   const root = process.cwd();
   const env = loadEnv(mode, root); // 环境变量对象
-  console.log(env, '------')
+  console.log('环境变量------', env)
+  console.log('文件路径（ process.cwd()）------', root)
+  console.log('文件路径（dirname）------', __dirname + '/src')
   const { VITE_DROP_CONSOLE } = wrapperEnv(env)
 
   // // dev 独有配置
@@ -37,6 +39,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
+      // hmr: {
+      //   overlay: false
+      // }
     },
     // ******项目构建配置******
     build: {
@@ -53,9 +58,26 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {  // 别名配置
         // 键必须以斜线开始和结束
-        '@': resolve(__dirname, './src'),
+        '@': resolve(__dirname, 'src'),
         'assets': resolve(__dirname, './src/assets'),
+        '#': join(__dirname, 'types')
       },
+      // alias: [
+      //   { find: '@', replacement: resolve(__dirname, 'src') },
+      //   { find: 'assets', replacement: resolve(__dirname, 'src/assets') },
+      // ],
+      // alias: [
+      //   // /@/xxxx => src/xxxx
+      //   {
+      //     find: /\/@\//,
+      //     replacement: pathResolve('src') + '/',
+      //   },
+      //   // /#/xxxx => types/xxxx
+      //   {
+      //     find: /\/#\//,
+      //     replacement: pathResolve('types') + '/',
+      //   },
+      // ],
     },
     // 除测试环境删除其他环境的打印
     esbuild: {
@@ -81,4 +103,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
   };
-}
+})
+// function pathResolve(dir: string) {
+//   return resolve(process.cwd(), '.', dir);
+// }
