@@ -60,7 +60,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         // 键必须以斜线开始和结束
         '@': resolve(__dirname, 'src'),
         'assets': resolve(__dirname, './src/assets'),
-        '#': join(__dirname, 'types')
+        '#': resolve(__dirname, 'types'),
+        'build': resolve(__dirname, 'build')
       },
       // alias: [
       //   { find: '@', replacement: resolve(__dirname, 'src') },
@@ -104,6 +105,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     },
   };
 })
-// function pathResolve(dir: string) {
-//   return resolve(process.cwd(), '.', dir);
-// }
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), '.', dir);
+}
