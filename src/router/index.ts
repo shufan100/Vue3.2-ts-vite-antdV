@@ -14,14 +14,14 @@ const routes = [
         path: '/home',
         name: 'home',
         // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
-        component: () => import('../views/Home/index.vue'),
+        component: () => import('@/views/Home/index.vue'),
         meta: { title: '首页' }
       },
       {
         path: '/about',
         name: 'abuout',
         // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
-        component: () => import('../views/Abuout/index.vue'),
+        component: () => import('@/views/Abuout/index.vue'),
         meta: { title: '作者' }
       }
     ]

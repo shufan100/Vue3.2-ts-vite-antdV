@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
     "build:test": "vite build  --mode test",
     "build:uat": "vite build  --mode uat",
-    "build:prod": "vite build  --mode production",
+    "build": "vite build  --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
