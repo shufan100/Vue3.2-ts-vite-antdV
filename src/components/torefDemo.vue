@@ -31,6 +31,6 @@ const change = () => {
 }
 onBeforeMount(() => {
   console.log(1111111)
-  fun
 })
+defineExpose
 </script>

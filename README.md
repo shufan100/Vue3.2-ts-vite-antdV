@@ -18,7 +18,7 @@ npm run build
 
 # 目录结构
 ```bash
-# ├─ public                     # 静态资源
+# ├─ public                     # 静态资源服务的文件夹
 # │   └─ favicon.ico            # favicon图标
 # │
 # ├─ src                        # 源代码文件夹

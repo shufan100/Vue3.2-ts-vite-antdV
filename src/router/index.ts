@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+// import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 // import { defineAsyncComponent } from 'vue';
 import Content from '../views/layout/content.vue'
 

@@ -51,6 +51,7 @@ const get2 = () => {
 // -------------------- readonly (只读)------------------------
 const readonlys = () => {
   const copy = readonly(person)
+  console.log(copy)
   // copy.num++ //无法分配到 "num" ，因为它是只读属性
 }
 

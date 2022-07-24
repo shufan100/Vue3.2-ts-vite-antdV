@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 // 重置样式
-import './assets/css/reset.less'
+import 'assets/css/reset.less'
 // 路由
 import router from './router'
 
