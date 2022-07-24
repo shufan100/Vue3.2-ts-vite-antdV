@@ -63,22 +63,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         '#': resolve(__dirname, 'types'),
         'build': resolve(__dirname, 'build')
       },
-      // alias: [
-      //   { find: '@', replacement: resolve(__dirname, 'src') },
-      //   { find: 'assets', replacement: resolve(__dirname, 'src/assets') },
-      // ],
-      // alias: [
-      //   // /@/xxxx => src/xxxx
-      //   {
-      //     find: /\/@\//,
-      //     replacement: pathResolve('src') + '/',
-      //   },
-      //   // /#/xxxx => types/xxxx
-      //   {
-      //     find: /\/#\//,
-      //     replacement: pathResolve('types') + '/',
-      //   },
-      // ],
     },
     // 除测试环境删除其他环境的打印
     esbuild: {
