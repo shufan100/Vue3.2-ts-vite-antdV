@@ -73,7 +73,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       preprocessorOptions: {
         less: {
           javascriptEnabled: true,
-          // 全局变量样式 使用：@primary-color
+          // 配置全局变量样式 使用：@primary-color
           modifyVars: {
             'primary-color': "#2858f8",
             'success-color': '#55D187', //  Success color

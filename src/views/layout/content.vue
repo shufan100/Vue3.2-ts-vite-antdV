@@ -16,6 +16,9 @@ const goRouter = (name: string): void => {
 </script>
 
 <style lang="less" scoped>
+.Content {
+  color: @primary-color;
+}
 // @import "xxx";
 // @import url(xxx);
 </style>
