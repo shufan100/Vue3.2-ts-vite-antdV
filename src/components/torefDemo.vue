@@ -5,7 +5,19 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRef } from 'vue'
+import { onBeforeMount, reactive, toRef } from 'vue'
+type Props = {
+  title?: string
+  list: number[]
+  flag: boolean
+  tab: Function
+}
+withDefaults(defineProps<Props>(), {
+  title: 'title',
+  list: () => [1, 2, 4],
+  flag: false,
+  tab: () => {}
+})
 
 const obj = {
   foo: 1,
@@ -17,4 +29,8 @@ const change = () => {
   state.value++
   console.log(obj, state)
 }
+onBeforeMount(() => {
+  console.log(1111111)
+  fun
+})
 </script>
