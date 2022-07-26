@@ -7,12 +7,14 @@
       <h2>全局变量</h2>
       {{ globalProperties.$name }}
     </div>
+    <button @click="isDirective = !isDirective">拖拽弹窗{{ isDirective }}</button>
     <DynamicCom />
     <ProvideOrInject />
     <BusCom />
     <MittCom />
     <TsxCom title="Home" @add="add" />
     <PropsCom />
+    <DirectiveCom v-if="isDirective" v-model:isDirective="isDirective" />
   </div>
 </template>
 
@@ -24,12 +26,12 @@ import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
 import MittCom from '@/components/Mitt/index.vue'
 import TsxCom from '@/components/TsxCom/index'
 import PropsCom from '@/components/PropsCom/index.vue'
+import DirectiveCom from '@/components/Directive/index.vue'
 
 import { ggs } from '@/utils'
 import { aa } from '@/utils/tool'
 
-let flag = ref<boolean>(false)
-let list = reactive<(string | number)[]>([1, '2', 'sdsd'])
+let isDirective = ref<boolean>(true)
 
 // 获取全局属性
 const {
