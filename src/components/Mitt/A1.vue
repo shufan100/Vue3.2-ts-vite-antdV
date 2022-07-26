@@ -10,9 +10,9 @@ const currentInstance = getCurrentInstance()
 let stata = ref<any>('初始值--')
 
 // 接收所有事件 （*事件靠后）
-currentInstance?.proxy?.$Mitt.on('*', (type: string, data: any) => {
-  console.log(type, data)
-})
+// currentInstance?.proxy?.$Mitt.on('*', (type: string, data: any): void => {
+//   console.log(type, data)
+// })
 
 currentInstance?.proxy?.$Mitt.on('on-click', (data: any) => {
   console.log(data)

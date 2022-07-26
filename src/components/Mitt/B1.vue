@@ -5,9 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance } from 'vue'
 const currentInstance = getCurrentInstance()
-console.log(currentInstance)
 const onMitt = (): void => {
   currentInstance?.proxy?.$Mitt.emit('on-click', '数据111')
 }

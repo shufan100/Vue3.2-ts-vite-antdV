@@ -12,8 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import { provide, reactive } from 'vue'
-import { useRouter } from 'vue-router'
 const router = useRouter()
 const goRouter = (name: string): void => {
   router.push(name)

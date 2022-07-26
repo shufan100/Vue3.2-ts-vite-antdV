@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import { loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite'
 import type { UserConfig, ConfigEnv } from 'vite';
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import vueJsx from '@vitejs/plugin-vue-jsx'  //tsx插件引入
+import AutoImport from 'unplugin-auto-import/vite'  //自动引入ref,reactive等插件
 // import path from 'path';
 import { resolve, join } from 'path';
 import { wrapperEnv } from './build/utils';
@@ -25,7 +25,14 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     assetsInclude: resolve(__dirname, './src/assets'),  // 静态资源处理
 
     // ******插件配置******
-    plugins: [vue(), vueJsx()],  //配置插件
+    plugins: [vue(), vueJsx(), AutoImport({
+      imports: ['vue', 'vue-router', {
+        'axios': [
+          ['default', 'axios'], // import { default as axios } from 'axios',
+        ],
+      },],
+      dts: 'types/auto-import.d.ts'  //生成全局引入的文件
+    })],  //配置插件
     // ******开发服务器配置******
     server: {
       https: true, //(使用https)启用 TLS + HTTP/2。注意：当 server.proxy 选项 也被使用时，将会仅使用 TLS
@@ -68,7 +75,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         'build': resolve(__dirname, 'build')
       },
     },
-    // 除测试环境删除其他环境的打印
+    // ******打印+debugger清除配置******
+    // 测试环境保留打印
     esbuild: {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
     },

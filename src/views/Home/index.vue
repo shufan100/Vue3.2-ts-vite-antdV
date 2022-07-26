@@ -12,19 +12,24 @@
     <BusCom />
     <MittCom />
     <TsxCom title="Home" @add="add" />
+    <PropsCom />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { getCurrentInstance, ComponentInternalInstance } from 'vue'
+import { ComponentInternalInstance } from 'vue'
 import DynamicCom from '@/components/DynamicCom/index.vue'
 import BusCom from '@/components/Bus/index.vue'
 import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
 import MittCom from '@/components/Mitt/index.vue'
 import TsxCom from '@/components/TsxCom/index'
+import PropsCom from '@/components/PropsCom/index.vue'
 
 import { ggs } from '@/utils'
 import { aa } from '@/utils/tool'
+
+let flag = ref<boolean>(false)
+let list = reactive<(string | number)[]>([1, '2', 'sdsd'])
 
 // 获取全局属性
 const {
