@@ -1,26 +1,38 @@
 <template>
   <div class="home">
     <h2>首页--home</h2>
+    {{ ggs() }}
+    {{ aa() }}
+    <div style="color: red">
+      <h2>全局变量</h2>
+      {{ globalProperties.$name }}
+    </div>
+    <DynamicCom />
+    <ProvideOrInject />
+    <BusCom />
+    <MittCom />
   </div>
-  {{ ggs() }}
-  {{ aa() }}
-  <DynamicCom />
-  <BusCom />
-  <ProvideOrInject />
 </template>
 
 <script lang="ts" setup>
+import { getCurrentInstance, ComponentInternalInstance } from 'vue'
 import DynamicCom from '@/components/DynamicCom/index.vue'
 import BusCom from '@/components/Bus/index.vue'
 import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
+import MittCom from '@/components/Mitt/index.vue'
 
 import { ggs } from '@/utils'
 import { aa } from '@/utils/tool'
+
+// 获取全局属性
+const {
+  appContext: {
+    config: { globalProperties }
+  }
+} = getCurrentInstance() as ComponentInternalInstance
 </script>
 
 <style lang="less" scoped>
-// @import "xxx";
-// @import url(xxx);
 .home {
   margin-top: 30px;
 }

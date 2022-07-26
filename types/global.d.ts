@@ -3,3 +3,4 @@ declare interface ViteEnv {
 }
 
 declare type Recordable<T = any> = Record<string, T>;
+
