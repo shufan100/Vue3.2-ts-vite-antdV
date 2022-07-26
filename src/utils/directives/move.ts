@@ -1,7 +1,6 @@
 import type { Directive, DirectiveBinding, App } from 'vue';
 
-// 自定义拖拽指令
-//函数接收4个参数：el:是Directive--dom节点  binding
+// 拖拽指令
 const moveDirective: Directive<any, void> = (el: HTMLElement, binding: DirectiveBinding) => {
   let headerDom: HTMLDivElement = el.firstElementChild as HTMLDivElement //获取header的dom节点
   let appDom: HTMLDivElement = document.querySelector('#app') as HTMLDivElement //获取header的dom节点
