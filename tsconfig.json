@@ -5,13 +5,18 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
+    // vue jsx配置
     "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    // 
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
+    
     "baseUrl": "./",
     "paths":{
       "@/*": ["src/*"],
@@ -23,6 +28,7 @@
 
     "src/**/*.ts",
     "src/**/*.tsx", 
+    "src/**/**/*.tsx", 
     "src/**/*.vue",
     "src/**/**/*.vue", //根据文件夹深度定义，不然超出的会读不到
     "src/**/*.d.ts", 

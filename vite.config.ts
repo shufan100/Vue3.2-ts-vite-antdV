@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { loadEnv } from 'vite';
 import type { UserConfig, ConfigEnv } from 'vite';
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 // import path from 'path';
 import { resolve, join } from 'path';
 import { wrapperEnv } from './build/utils';
@@ -24,7 +25,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     assetsInclude: resolve(__dirname, './src/assets'),  // 静态资源处理
 
     // ******插件配置******
-    plugins: [vue()],  // 需要用到的插件数组。
+    plugins: [vue(), vueJsx()],  //配置插件
     // ******开发服务器配置******
     server: {
       https: true, //(使用https)启用 TLS + HTTP/2。注意：当 server.proxy 选项 也被使用时，将会仅使用 TLS

@@ -11,6 +11,7 @@
     <ProvideOrInject />
     <BusCom />
     <MittCom />
+    <TsxCom title="Home" @add="add" />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import DynamicCom from '@/components/DynamicCom/index.vue'
 import BusCom from '@/components/Bus/index.vue'
 import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
 import MittCom from '@/components/Mitt/index.vue'
+import TsxCom from '@/components/TsxCom/index'
 
 import { ggs } from '@/utils'
 import { aa } from '@/utils/tool'
@@ -30,6 +32,10 @@ const {
     config: { globalProperties }
   }
 } = getCurrentInstance() as ComponentInternalInstance
+
+const add = () => {
+  console.log(11111)
+}
 </script>
 
 <style lang="less" scoped>
