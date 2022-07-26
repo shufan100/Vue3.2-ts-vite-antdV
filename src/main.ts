@@ -12,13 +12,15 @@ declare module 'vue' {  //必须要拓展ComponentCustomProperties类型才能�
     $Mitt: typeof Mitt
   }
 }
+// 全局自定义指令
+import { setupGlobDirectives } from '@/utils/directives';
 
 const app = createApp(App)  //从这开始是链式调用（中间报错就走不下了）
 
 // 全局属性
 app.config.globalProperties.$name = '全局名称'
 app.config.globalProperties.$Mitt = Mitt
-console.log(app)
 
 app.use(router)  //注册路由中间件
+setupGlobDirectives(app)
 app.mount('#app')
