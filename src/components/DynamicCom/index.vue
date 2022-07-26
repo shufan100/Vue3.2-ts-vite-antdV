@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 30px">
     <h2>动态组件</h2>
     <button v-for="item in data" @click="current.comName = item.comName">{{ item.name }}</button>
     <component :is="current.comName"></component>
@@ -8,8 +8,9 @@
 
 <script setup lang="ts">
 import { reactive, markRaw } from 'vue'
-import A from '@/views/DynamicCom/A.vue'
-import B from '@/views/DynamicCom/B.vue'
+
+import A from './A.vue'
+import B from './B.vue'
 
 type Tab = {
   name: string

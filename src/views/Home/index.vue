@@ -1,31 +1,27 @@
 <template>
-  <div class="home">首页内容</div>
-  <Demo />
+  <div class="home">
+    <h2>首页--home</h2>
+  </div>
   {{ ggs() }}
   {{ aa() }}
   <DynamicCom />
-  {{ stateData.name }}{{ stateData.num }}
-  <button @click="stateData.num++">333</button>
+  <BusCom />
+  <ProvideOrInject />
 </template>
 
 <script lang="ts" setup>
-import { inject, Ref, reactive } from 'vue'
-import Demo from '@/components/demo.vue'
-import DynamicCom from '@/views/DynamicCom/index.vue'
+import DynamicCom from '@/components/DynamicCom/index.vue'
+import BusCom from '@/components/Bus/index.vue'
+import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
+
 import { ggs } from '@/utils'
 import { aa } from '@/utils/tool'
-
-const stateData = inject<{
-  name: string
-  num: number
-}>('stateData', {
-  name: '',
-  num: 0
-})
-console.log(stateData)
 </script>
 
 <style lang="less" scoped>
 // @import "xxx";
 // @import url(xxx);
+.home {
+  margin-top: 30px;
+}
 </style>
