@@ -8,7 +8,7 @@ const Mitt = mitt()
 import { setupGlobDirectives } from '@/utils/directives' // 全局自定义指令
 import filters from '@/utils/filters' // 全局自定义过滤器（filter）
 
-// *** 类型定义 ***
+// *** 类型推断 ***
 declare module 'vue' {
   //必须要拓展ComponentCustomProperties类型才能获得类型提示
   export interface ComponentCustomProperties {
