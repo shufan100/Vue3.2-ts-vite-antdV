@@ -15,7 +15,7 @@ const routes = [
         name: 'home',
         // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
         component: () => import('@/views/Home/index.vue'),
-        meta: { title: '首页' }
+        meta: { title: '首页' },
       },
       {
         path: '/about',
@@ -23,6 +23,24 @@ const routes = [
         // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
         component: () => import('@/views/Abuout/index.vue'),
         meta: { title: '作者' }
+      },
+      {
+        path: '/a1',
+        name: 'A',
+        component: () => import('@/views/com/A.vue'),
+        meta: { title: 'a11' }
+      },
+      {
+        path: '/b1',
+        name: 'B',
+        component: () => import('@/views/com/B.vue'),
+        meta: { title: 'b11' }
+      },
+      {
+        path: '/c1',
+        name: 'C',
+        component: () => import('@/views/com/c.vue'),
+        meta: { title: 'c11' }
       }
     ]
   }

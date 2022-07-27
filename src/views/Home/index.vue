@@ -23,6 +23,7 @@
     <TsxCom title="Home" @add="add" />
     <PropsCom />
     <DirectiveCom v-if="isDirective" v-model:isDirective="isDirective" />
+    <BindStyle/>
   </div>
 </template>
 
@@ -35,6 +36,7 @@ import MittCom from '@/components/Mitt/index.vue';
 import TsxCom from '@/components/TsxCom/index';
 import PropsCom from '@/components/PropsCom/index.vue';
 import DirectiveCom from '@/components/Directive/index.vue';
+import BindStyle from '@/components/BindStyle/index.vue'
 
 import { ggs } from '@/utils';
 import { aa } from '@/utils/tool';
@@ -55,7 +57,5 @@ const add = () => {
 </script>
 
 <style lang="less" scoped>
-.home {
-  margin-top: 30px;
-}
+
 </style>
