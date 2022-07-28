@@ -24,6 +24,8 @@
     <PropsCom />
     <DirectiveCom v-if="isDirective" v-model:isDirective="isDirective" />
     <BindStyle/>
+    <NextTickCom/>
+    <StoreCom/>
   </div>
 </template>
 
@@ -37,6 +39,8 @@ import TsxCom from '@/components/TsxCom/index';
 import PropsCom from '@/components/PropsCom/index.vue';
 import DirectiveCom from '@/components/Directive/index.vue';
 import BindStyle from '@/components/BindStyle/index.vue'
+import NextTickCom from '@/components/NextTick/index.vue'
+import StoreCom from '@/components/StoreCom/index.vue'
 
 import { ggs } from '@/utils';
 import { aa } from '@/utils/tool';
