@@ -1,9 +1,10 @@
 <template>
   <div style="margin-top: 30px">
-    <h2>全局状态管理</h2>
+    <h2>Pinia全局状态管理</h2>
     <div>
       <h4>inia（AppStore模块）</h4>
       <p>Pinia（使用）：{{ appStore.appName }} -- {{ appStore.current }}</p>
+      <p>Pinia（解构使用）：{{ appName }} -- {{ current }}</p>
       <p>Pinia（getters）：{{ appStore.getAppName }} -- {{ appStore.getCurrent }}</p>
       <p>Pinia（actions）：
           <div>修改appName：<input type="text" v-model="val" @input="input"></div>
@@ -31,26 +32,30 @@
 <script setup lang="ts">
 import { useAppStore } from '@/store/modules/app'
 import { useUserStore } from '@/store/modules/user'
+import { storeToRefs } from 'pinia';
 const appStore = useAppStore()
 const userStroe = useUserStore()
+const {appName,current} = storeToRefs(appStore)  //解构，具备响应式
+
 
 let val = ref<string>('')
 let val2 = ref<string>('')
-// 方式1
+// 方式1 (通过actions修改)
 const input = ():void=>{
   appStore.setAppName(val.value)
+  // console.log(appName.value,current.value,'----')
 }
-// 方式3 (可修改对象的单个属性)
+// 方式3 (实例上$patch方法可以批量修改多个值)
 const divide3 = (num:number):void =>{
   appStore.$patch({current:appStore.current - num})
 }
-// 方式4
+// 方式4 (使用函数形式 可以自定义修改逻辑--推荐)
 const divide4 = (num:number):void =>{
   appStore.$patch((state)=>{
     state.current = state.current*num
   })
 }
-// 方式5 (整个对象都修改)
+// 方式5 (整个对象都修改--不推荐)
 const divide5 = (num:number):void =>{
   appStore.$state = {
     appName:'修改',
