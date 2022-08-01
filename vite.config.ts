@@ -3,6 +3,9 @@ import type { UserConfig, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx' //tsx插件引入
 import AutoImport from 'unplugin-auto-import/vite' //自动引入ref,reactive等等等
+// 配置antd-v按需加载
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 // import path from 'path';
 import { resolve, join } from 'path'
 import { wrapperEnv } from './build/utils'
@@ -32,6 +35,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         imports: [
           'vue',
           'vue-router',
+          'pinia',
           {
             axios: [
               ['default', 'axios'] // import { default as axios } from 'axios',
@@ -39,6 +43,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           }
         ],
         dts: 'types/auto-import.d.ts' //生成全局引入的文件
+      }),
+      Components({
+        resolvers: [ AntDesignVueResolver() ]
       })
     ], //配置插件
     // ******开发服务器配置******

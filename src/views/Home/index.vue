@@ -15,11 +15,6 @@
       &nbsp;&nbsp;&nbsp;&nbsp;6、全局路由(router)： <button @click="$router.push('/about')">跳转</button><br />
       &nbsp;&nbsp;&nbsp;&nbsp;7、全局自定义指令： <button @click="isDirective = !isDirective">拖拽弹窗{{ isDirective }}</button><br />
     </div>
-    <ul>
-      <li v-for="(i, index) in arr">{{ i.id }} -- {{ i.name }}>>{{ arr2[index] }}</li>
-    </ul>
-    {{ arr }} {{ arr2 }}
-    <button @click="edit">修改</button>
     <DynamicCom />
     <ProvideOrInject />
     <BusCom />
@@ -30,6 +25,7 @@
     <BindStyle />
     <NextTickCom />
     <StoreCom />
+    <a-button type="primary">1111</a-button>
   </div>
 </template>
 
@@ -45,14 +41,9 @@ import DirectiveCom from '@/components/Directive/index.vue'
 import BindStyle from '@/components/BindStyle/index.vue'
 import NextTickCom from '@/components/NextTick/index.vue'
 import StoreCom from '@/components/StoreCom/index.vue'
-
 import { ggs } from '@/utils'
 
 let isDirective = ref<boolean>(true)
-
-let arr = ref<any[]>([])
-let arr2 = ref(['11', '22', '33'])
-
 // 获取全局属性
 const {
   appContext: {
@@ -61,21 +52,11 @@ const {
 } = <ComponentInternalInstance>getCurrentInstance()
 console.log('setup获取全局属性：', globalProperties.$name, globalProperties.$bool)
 
-onMounted(() => {
-  arr.value = [
-    { id: 1, name: '2121' },
-    { id: 2, name: '33333' },
-    { id: 3, name: 'ggggg' }
-  ]
-})
 
 const add = () => {
   console.log(11111)
 }
-const edit = () => {
-  arr.value[1] = reactive({ id: 4, name: '34343' })
-  // arr2.value[1] = '44'
-}
+
 </script>
 
 <style lang="less" scoped></style>
