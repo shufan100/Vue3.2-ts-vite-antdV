@@ -2,7 +2,7 @@
   <div style="margin-top: 30px">
     <h2>Pinia全局状态管理</h2>
     <div>
-      <h4>inia（AppStore模块）</h4>
+      <h4>Pinia（AppStore模块）</h4>
       <p>Pinia（使用）：{{ appStore.appName }} -- {{ appStore.current }}</p>
       <p>Pinia（解构使用）：{{ appName }} -- {{ current }}</p>
       <p>Pinia（getters）：{{ appStore.getAppName }} -- {{ appStore.getCurrent }}</p>
@@ -17,7 +17,7 @@
       </p>
     </div>
     <div>
-      <h4>inia（userStroe模块）</h4>
+      <h4>Pinia（userStroe模块）</h4>
       <p>Pinia（使用）：{{ userStroe.userName }} -- {{ userStroe.current }}</p>
       <p>Pinia（getters）：{{ userStroe.getuserName }} -- {{ userStroe.getCurrent }}</p>
      <p>Pinia（actions）：
