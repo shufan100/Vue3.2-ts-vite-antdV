@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-// 我们需要知道存储是使用定义的defineStore()，并且它需要一个唯一的名称，作为第一个参数传递
+// 我们需要知道存储是使用定义的defineStore(唯一的名称,{})，并且它需要一个唯一的名称，作为第一个参数传递
 import enums from '../enums'
 
 interface UserInster {

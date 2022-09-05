@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <h2>首页--home</h2>
+    <a-button type="primary">1111</a-button>
+    <a-button color="warning">32</a-button>
     <div>
       <h3 style="color: brown">1、读取ts文件</h3>
       &nbsp;&nbsp;&nbsp;&nbsp;1、 {{ ggs() }}
@@ -25,7 +27,8 @@
     <BindStyle />
     <NextTickCom />
     <StoreCom />
-    <a-button type="primary">1111</a-button>
+
+    <div class="asss">1111</div>
   </div>
 </template>
 
@@ -52,11 +55,13 @@ const {
 } = <ComponentInternalInstance>getCurrentInstance()
 console.log('setup获取全局属性：', globalProperties.$name, globalProperties.$bool)
 
-
 const add = () => {
   console.log(11111)
 }
-
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.asss {
+  color: @primary-color;
+}
+</style>
