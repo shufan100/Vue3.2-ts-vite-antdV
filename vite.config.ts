@@ -12,12 +12,13 @@ import { wrapperEnv } from './build/utils'
 
 // defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
-  console.log(command, mode, '===')
+  // console.log(command, mode, '===')
+  // command: 开发serve  生产build
   const root = process.cwd()
   const env = loadEnv(mode, root) // 环境变量对象
-  console.log('环境变量------', env)
-  console.log('文件路径（ process.cwd()）------', root)
-  console.log('文件路径（dirname）------', __dirname + '/src')
+  // console.log('环境变量------', env)
+  // console.log('文件路径（ process.cwd()）------', root)
+  // console.log('文件路径（dirname）------', __dirname + '/src')
   const { VITE_DROP_CONSOLE } = wrapperEnv(env)
 
   // // dev 独有配置
@@ -58,7 +59,8 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       host: true, // 监听所有地址
       port: 8080, //指定开发服务器端口：默认3000
       open: true, //启动时自动在浏览器中打开
-      cors: false, //为开发服务器配置 CORS
+      cors: false, //为开发服务器配置 CORS。默认启动并允许任何源（类似后端配置跨越）
+      force:false, // 强制使依赖预构建
       proxy: {
         //配置自定义代理规则
         // 字符串简写写法
@@ -69,20 +71,26 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           rewrite: path => path.replace(/^\/api/, '')
         }
       }
-      // hmr: {
+      // hmr: { //热更新
       //   overlay: false
       // }
     },
     // ******项目构建配置******
     build: {
-      target: 'modules', //设置最终构建的浏览器兼容目标  //es2015(编译成es5) | modules
-      outDir: 'dist', // 构建得包名  默认：dist
-      assetsDir: 'assets', // 静态资源得存放路径文件名  assets
+      target: 'modules', //设置最终构建的浏览器兼容目标  //es2015(编译成es5) | 默认：modules
+      polyfillModulePreload:true, //polyfill会被自动注入到每个index.html入口的proxy模块中   默认true
+      outDir: 'dist', // 编译输出的路径  默认：dist
+      assetsDir: 'assets', // 静态资源的存放路径 默认assets
+      assetsInlineLimit:4096, // 导入和引用的资源小于4kb将内联成base64编码  默认(4kb)
+      cssCodeSplit:true,  // css代码拆分，false css会被提取到一个css文件中。  默认true
+      cssTarget: 'chrome61', //编译css的兼容目标 防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式  (要兼容的场景是安卓微信中的 webview 时,它不支持 CSS 中的 #RGBA 十六进制颜色符号)
       sourcemap: false, //构建后是否生成 source map 文件
       brotliSize: false, // 启用/禁用 brotli 压缩大小报告。 禁用该功能可能会提高大型项目的构建性能
       minify: 'esbuild', // 项目压缩 :boolean | 'terser' | 'esbuild'
       chunkSizeWarningLimit: 1000, //chunk 大小警告的限制（以 kbs 为单位）默认：500
-      cssTarget: 'chrome61' //防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式  (要兼容的场景是安卓微信中的 webview 时,它不支持 CSS 中的 #RGBA 十六进制颜色符号)
+      // rollupOptions:{} //自定义底层rollup打包配置，并将与vite的内部rollup选项合并。
+      // commonjsOptions:{} // plugin-commonjs插件配置
+      // dynamicImportVarsOptions:{} //pulgin-dynamic-import-vars插件配置
     },
     // ******resolver配置******
     resolve: {
@@ -101,7 +109,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     esbuild: {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : []
     },
-
+    define:{
+      __APP_INFO__:{
+        name:"SHUF"
+      }
+    },
     css: {
       // 全局变量+全局引入less+配置antdv主题色
       // 注：less-loader版本需要大于6.0.0版本

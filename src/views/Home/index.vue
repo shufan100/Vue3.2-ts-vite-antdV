@@ -4,7 +4,7 @@
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
     <div>
-      <h3 style="color: brown">1、读取ts文件</h3>
+      <h3 style="color: red">1、读取ts文件</h3>
       &nbsp;&nbsp;&nbsp;&nbsp;1、 {{ ggs() }}
     </div>
     <div>
@@ -17,6 +17,15 @@
       &nbsp;&nbsp;&nbsp;&nbsp;6、全局路由(router)： <button @click="$router.push('/about')">跳转</button><br />
       &nbsp;&nbsp;&nbsp;&nbsp;7、全局自定义指令： <button @click="isDirective = !isDirective">拖拽弹窗{{ isDirective }}</button><br />
     </div>
+    <div>
+      <h3 style="color: red">3、*全局样式变量</h3>
+      <div class="asss">全局样式变量</div>
+    </div>
+    <div>
+      <h3 style="color: red">4、public静态资源（开发期间路径'/'）</h3>
+
+      <img src="/public/logo2.png" alt="" />
+    </div>
     <DynamicCom />
     <ProvideOrInject />
     <BusCom />
@@ -27,8 +36,6 @@
     <BindStyle />
     <NextTickCom />
     <StoreCom />
-
-    <div class="asss">1111</div>
   </div>
 </template>
 
@@ -45,6 +52,9 @@ import BindStyle from '@/components/BindStyle/index.vue'
 import NextTickCom from '@/components/NextTick/index.vue'
 import StoreCom from '@/components/StoreCom/index.vue'
 import { ggs } from '@/utils'
+
+const { name } = __APP_INFO__
+console.log(name)
 
 let isDirective = ref<boolean>(true)
 // 获取全局属性

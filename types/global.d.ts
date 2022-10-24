@@ -4,3 +4,9 @@ declare interface ViteEnv {
 }
 
 declare type Recordable<T = any> = Record<string, T>
+
+declare global {
+  const __APP_INFO__:{
+    name:string
+  }
+}
