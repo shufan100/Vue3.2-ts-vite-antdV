@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    {{ x }}--{{ y }} {{ data.name }}
     <h2>首页--home</h2>
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
@@ -52,9 +53,11 @@ import BindStyle from '@/components/BindStyle/index.vue'
 import NextTickCom from '@/components/NextTick/index.vue'
 import StoreCom from '@/components/StoreCom/index.vue'
 import { ggs } from '@/utils'
+// hooks
+import { useMouse, useFetch } from '@/hooks'
 
-const { name } = __APP_INFO__
-console.log(name)
+// const { name } = __APP_INFO__
+// console.log(name)
 
 let isDirective = ref<boolean>(true)
 // 获取全局属性
@@ -68,6 +71,15 @@ console.log('setup获取全局属性：', globalProperties.$name, globalProperti
 const add = () => {
   console.log(11111)
 }
+
+//
+const { x, y } = useMouse()
+console.log(x, y, '--=')
+const data = useFetch()
+setTimeout(() => {
+  data.name.value = '舒梵'
+  // console.log(name.value, age.value)
+}, 1000)
 </script>
 
 <style lang="less" scoped>
