@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     {{ x }}--{{ y }} {{ data.name }}
-    <h2>首页--home</h2>
+    <h2 v-color="colors">首页--home</h2>
+    <p>{{ $omitTextPlugin('xxxxxxzfaffa') }}</p>
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
     <div>
@@ -58,6 +59,7 @@ import { useMouse, useFetch } from '@/hooks'
 
 // const { name } = __APP_INFO__
 // console.log(name)
+const colors = ref<string>('yellow')
 
 let isDirective = ref<boolean>(true)
 // 获取全局属性

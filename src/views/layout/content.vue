@@ -2,7 +2,9 @@
   <div class="Content">
     <Aside />
     <keep-alive>
-      <router-view class="main"></router-view>
+      <Transition name="fade">
+        <router-view class="main"></router-view>
+      </Transition>
     </keep-alive>
   </div>
 </template>
@@ -35,5 +37,14 @@ provide('stateData', state)
     width: 100%;
     padding-bottom: 20px;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

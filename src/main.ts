@@ -6,6 +6,7 @@ import router from './router' // 路由
 import mitt from 'mitt' // Mitt (全局事件总栈)
 const Mitt = mitt()
 import { setupGlobDirectives } from '@/utils/directives' // 全局自定义指令
+import { setupGlodPlugins } from '@/utils/plugins' // 全局自定义插件
 import filters from '@/utils/filters' // 全局自定义过滤器（filter）
 import store from './store' //注册全局状态管理工具
 
@@ -39,4 +40,6 @@ console.log('Vue实例：', app)
 app.use(router) //注册路由中间件
 app.use(store) //注册全局状态管理工具
 setupGlobDirectives(app) //注册自定义指令
+setupGlodPlugins(app) //注册自定义插件
+
 app.mount('#app')
