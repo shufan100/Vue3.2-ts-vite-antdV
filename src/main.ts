@@ -40,6 +40,6 @@ console.log('Vue实例：', app)
 app.use(router) //注册路由中间件
 app.use(store) //注册全局状态管理工具
 setupGlobDirectives(app) //注册自定义指令
-setupGlodPlugins(app) //注册自定义插件
+setupGlodPlugins(app) //注册自/定义插件
 
 app.mount('#app')
