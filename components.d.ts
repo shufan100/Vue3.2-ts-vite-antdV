@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     DynamicCom: typeof import('./src/components/DynamicCom/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Mitt: typeof import('./src/components/Mitt/index.vue')['default']
+    Modal: typeof import('./src/components/Teleport/Modal.vue')['default']
     NextTick: typeof import('./src/components/NextTick/index.vue')['default']
     PropsChild: typeof import('./src/components/PropsCom/PropsChild.vue')['default']
     PropsCom: typeof import('./src/components/PropsCom/index.vue')['default']
@@ -28,6 +29,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StoreCom: typeof import('./src/components/StoreCom/index.vue')['default']
+    Teleport: typeof import('./src/components/Teleport/index.vue')['default']
     TorefDemo: typeof import('./src/components/torefDemo.vue')['default']
   }
 }

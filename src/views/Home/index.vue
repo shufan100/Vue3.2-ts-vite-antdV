@@ -2,7 +2,6 @@
   <div class="home">
     {{ x }}--{{ y }} {{ data.name }}
     <h2 v-color="colors">首页--home</h2>
-    <p>{{ $omitTextPlugin('xxxxxxzfaffa') }}</p>
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
     <div>
@@ -38,6 +37,7 @@
     <BindStyle />
     <NextTickCom />
     <StoreCom />
+    <TeleportCom />
   </div>
 </template>
 
@@ -53,6 +53,7 @@ import DirectiveCom from '@/components/Directive/index.vue'
 import BindStyle from '@/components/BindStyle/index.vue'
 import NextTickCom from '@/components/NextTick/index.vue'
 import StoreCom from '@/components/StoreCom/index.vue'
+import TeleportCom from '@/components/Teleport/index.vue'
 import { ggs } from '@/utils'
 // hooks
 import { useMouse, useFetch } from '@/hooks'
