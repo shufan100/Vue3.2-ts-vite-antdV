@@ -1,5 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp, App, AppConfig } from 'vue'
+import Apps from './App.vue'
 
 import 'assets/css/reset.less' // 重置样式
 import router from './router' // 路由
@@ -25,9 +25,16 @@ declare module 'vue' {
 }
 
 // **** 创建vue实例 ****
-const app = createApp(App) //从这开始是链式调用（中间报错就走不下了）
-
+const app: App = createApp(Apps) //从这开始是链式调用（中间报错就走不下了）
+// appconfig配置
+app.config = <AppConfig>{
+  performance: true, //开启对组件初始化，编译、渲染的性能表现追踪
+  // globalProperties: {
+  //   $name: '全局名称'
+  // }
+}
 // **** 挂载全局属性 ****
+
 app.config.globalProperties.$name = '全局名称'
 app.config.globalProperties.$bool = true
 app.config.globalProperties.$Mitt = Mitt

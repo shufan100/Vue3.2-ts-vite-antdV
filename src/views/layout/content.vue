@@ -1,11 +1,11 @@
 <template>
   <div class="Content">
-    <Aside />
-    <keep-alive>
-      <Transition name="slide-fade">
-        <router-view class="main"></router-view>
-      </Transition>
-    </keep-alive>
+    <!-- <Aside /> -->
+    <!-- <keep-alive> -->
+    <Transition name="slide-fade">
+      <router-view class="main"></router-view>
+    </Transition>
+    <!-- </keep-alive> -->
   </div>
 </template>
 

@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     Directive: typeof import('./src/components/Directive/index.vue')['default']
     DynamicCom: typeof import('./src/components/DynamicCom/index.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Loading: typeof import('./src/components/Loading/index.vue')['default']
     Mitt: typeof import('./src/components/Mitt/index.vue')['default']
     Modal: typeof import('./src/components/Teleport/Modal.vue')['default']
     NextTick: typeof import('./src/components/NextTick/index.vue')['default']

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    {{ x }}--{{ y }} {{ data.name }}
+    {{ x }}--{{ y }} {{ data.name }} {{ namess }}
     <h2 v-color="colors">首页--home</h2>
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
@@ -43,6 +43,7 @@
 
 <script lang="ts" setup>
 import { ComponentInternalInstance } from 'vue'
+import { $ref, $computed } from 'vue/macros' //已经配置了，可以不引，引了不配置也不报提示
 import DynamicCom from '@/components/DynamicCom/index.vue'
 import BusCom from '@/components/Bus/index.vue'
 import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
@@ -56,11 +57,16 @@ import StoreCom from '@/components/StoreCom/index.vue'
 import TeleportCom from '@/components/Teleport/index.vue'
 import { ggs } from '@/utils'
 // hooks
-import { useMouse, useFetch } from '@/hooks'
+import { useMouse, useMouse$, useFetch } from '@/hooks'
 
 // const { name } = __APP_INFO__
 // console.log(name)
 const colors = ref<string>('yellow')
+const count = $ref(100)
+const countNew = $computed<number>(() => {
+  return count * 10 + 1
+})
+console.log(count, countNew, '---')
 
 let isDirective = ref<boolean>(true)
 // 获取全局属性
@@ -77,12 +83,18 @@ const add = () => {
 
 //
 const { x, y } = useMouse()
-console.log(x, y, '--=')
 const data = useFetch()
 setTimeout(() => {
   data.name.value = '舒梵'
-  // console.log(name.value, age.value)
 }, 1000)
+let { x1, y1 } = useMouse$()
+// setInterval(() => {
+//   console.log(x1, y1, '---===')
+// }, 0)
+
+const namess = computed<number>(() => {
+  return x.value + 100
+})
 </script>
 
 <style lang="less" scoped>

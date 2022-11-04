@@ -6,21 +6,25 @@
     "useDefineForClassFields": true, 
     "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     // vue jsx配置
-    "jsx": "preserve",
+    "jsx": "preserve", // 确保ts在tsx语法编译过程中的完整性
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     // 
     "sourceMap": true,  //生成相应映射的".map文件"
     "resolveJsonModule": true,
-    "isolatedModules": true,  //将每个文件转换为单独的模块(类似于'ts.transpileModule') 
+    "isolatedModules": true,  //因为 Vite 使用 esbuild 来转译 TypeScript，并受限于单文件转译的限制 
     "esModuleInterop": true,  //通过为所有导入创建名称空间对象，在CommonJS和ES模块之间实现互操作性。 意味着“allowSyntheticDefaultImports” 
     "lib": ["esnext", "dom"], /* 用来指定项目中要使用的库. */
     "skipLibCheck": true,  //跳过声明文件的类型检查
+    // "types": ["vue/ref-macros"], // 响应式语法糖不提示，也可通过引用的方式
     
     "baseUrl": "./",  //用于解析非绝对模块名的基本目录 
     "paths":{
       "@/*": ["src/*"],
       "#": ["types"],
+      "build": ["build"],
+      "components": ["src/components/*"],
+      "assets": ["src/assets/*"],
     }
   },
   "include": [ 

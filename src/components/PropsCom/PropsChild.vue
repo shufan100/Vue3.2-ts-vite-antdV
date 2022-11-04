@@ -36,6 +36,10 @@ const props = withDefaults(defineProps<Props>(), {
   })
 })
 const emit = defineEmits(['add', 'update:show'])
+// const emit = defineEmits<{
+//   (e: 'add', data: string): void
+//   (e: 'update:show'): void
+// }>()
 const state = reactive<State>({
   name: '11111',
   flag: true

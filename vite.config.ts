@@ -27,10 +27,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     base: '/', //  开发或生产环境服务的公共基础路径：默认'/'   1、绝对 URL 路径名： /foo/；  2、完整的 URL： https://foo.com/； 3、空字符串或 ./（用于开发环境）
     publicDir: resolve(__dirname, './dist'), //默认'public'  作为静态资源服务的文件夹  (打包public文件夹会没有，里面得东西会直接编译在dist文件下)
     assetsInclude: resolve(__dirname, './src/assets'), // 静态资源处理
-
     // ******插件配置******
     plugins: [
-      vue(),
+      vue(
+        { reactivityTransform: true }//启动响应式语法糖 $ref $computed $toRef //宏命令无需引用，解决ref无需写.vue
+      ),
       vueJsx(),
       AutoImport({
         imports: [
@@ -60,7 +61,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       port: 8080, //指定开发服务器端口：默认3000
       open: true, //启动时自动在浏览器中打开
       cors: false, //为开发服务器配置 CORS。默认启动并允许任何源（类似后端配置跨越）
-      force:false, // 强制使依赖预构建
+      force: false, // 强制使依赖预构建
       proxy: {
         //配置自定义代理规则
         // 字符串简写写法
@@ -78,11 +79,11 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     // ******项目构建配置******
     build: {
       target: 'modules', //设置最终构建的浏览器兼容目标  //es2015(编译成es5) | 默认：modules
-      polyfillModulePreload:true, //polyfill会被自动注入到每个index.html入口的proxy模块中   默认true
+      polyfillModulePreload: true, //polyfill会被自动注入到每个index.html入口的proxy模块中   默认true
       outDir: 'dist', // 编译输出的路径  默认：dist
       assetsDir: 'assets', // 静态资源的存放路径 默认assets
-      assetsInlineLimit:4096, // 导入和引用的资源小于4kb将内联成base64编码  默认(4kb)
-      cssCodeSplit:true,  // css代码拆分，false css会被提取到一个css文件中。  默认true
+      assetsInlineLimit: 4096, // 导入和引用的资源小于4kb将内联成base64编码  默认(4kb)
+      cssCodeSplit: true,  // css代码拆分，false css会被提取到一个css文件中。  默认true
       cssTarget: 'chrome61', //编译css的兼容目标 防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式  (要兼容的场景是安卓微信中的 webview 时,它不支持 CSS 中的 #RGBA 十六进制颜色符号)
       sourcemap: false, //构建后是否生成 source map 文件
       brotliSize: false, // 启用/禁用 brotli 压缩大小报告。 禁用该功能可能会提高大型项目的构建性能
@@ -109,9 +110,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     esbuild: {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : []
     },
-    define:{
-      __APP_INFO__:{
-        name:"SHUF"
+    define: {
+      __APP_INFO__: {
+        name: "SHUF"
       }
     },
     css: {

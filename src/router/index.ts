@@ -1,5 +1,7 @@
 // import { createWebHashHistory, createWebHistory } from 'vue-router'
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { defineAsyncComponent } from 'vue'
+import { createRouter, createWebHashHistory, RouteRecordRaw, } from 'vue-router'
+import Loading from '@/components/Loading/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -14,32 +16,43 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home',
         name: 'home',
         // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
-        component: () => import('@/views/Home/index.vue'),
+        // 定义一个异步组件，它在运行时是懒加载的
+        component: defineAsyncComponent(() => import('@/views/Home/index.vue')),
+        // component: () => import('@/views/Home/index.vue'),
         meta: { title: '首页' }
       },
       {
         path: 'about',
         name: 'abuout',
-        // 注意：vite在使用动态路由的时候无法使用别名@ 必须使用相对路径
-        component: () => import('@/views/Abuout/index.vue'),
+        component: defineAsyncComponent({
+          loader: () => import('@/views/Abuout/index.vue'),
+          // 加载异步组件加载中的组件
+          loadingComponent: Loading,
+          // 加载异步组件失败使用的组件
+          errorComponent: Loading,
+          // 延迟加载异步组件
+          delay: 10000,
+          // 加载异步组件最长时间，超过会显示错误组件，默认：Infinity
+          timeout: 3000
+        }),
         meta: { title: '作者' }
       },
       {
         path: 'a1',
         name: 'A',
-        component: () => import('@/views/com/A.vue'),
+        component: defineAsyncComponent(() => import('@/views/com/A.vue')),
         meta: { title: 'a11' }
       },
       {
         path: 'b1',
         name: 'B',
-        component: () => import('@/views/com/B.vue'),
+        component: defineAsyncComponent(() => import('@/views/com/B.vue')),
         meta: { title: 'b11' }
       },
       {
         path: 'c1',
         name: 'C',
-        component: () => import('@/views/com/c.vue'),
+        component: defineAsyncComponent(() => import('@/views/com/c.vue')),
         meta: { title: 'c11' }
       }
     ]
