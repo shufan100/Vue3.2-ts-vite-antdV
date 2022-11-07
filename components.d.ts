@@ -31,6 +31,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     StoreCom: typeof import('./src/components/StoreCom/index.vue')['default']
     Teleport: typeof import('./src/components/Teleport/index.vue')['default']
+    ThreePie: typeof import('./src/components/ThreePie/index.vue')['default']
     TorefDemo: typeof import('./src/components/torefDemo.vue')['default']
   }
 }

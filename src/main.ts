@@ -1,13 +1,37 @@
+/*
+ * @Author: shufan100 1549248097@qq.com
+ * @Date: 2022-10-23 14:52:59
+ * @LastEditors: shufan100 1549248097@qq.com
+ * @LastEditTime: 2022-11-04 11:29:35
+ * @FilePath: \Vue3.2-ts-vite-pinia-antdv\src\main.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import { createApp, App, AppConfig } from 'vue'
 import Apps from './App.vue'
 
-import 'assets/css/reset.less' // 重置样式
-import router from './router' // 路由
-import mitt from 'mitt' // Mitt (全局事件总栈)
+// 全局样式
+import 'assets/css/reset.less'
+// 路由
+import router from './router'
+
+// Mitt (全局事件总栈)
+import mitt from 'mitt'
 const Mitt = mitt()
-import { setupGlobDirectives } from '@/utils/directives' // 全局自定义指令
-import filters from '@/utils/filters' // 全局自定义过滤器（filter）
-import store from './store' //注册全局状态管理工具
+
+// 全局自定义指令
+import { setupGlobDirectives } from '@/utils/directives'
+
+// 全局自定义过滤器（filter）
+import filters from '@/utils/filters'
+
+//注册全局状态管理工具
+import store from './store'
+
+// echarts 
+import * as echarts from 'echarts'
+import 'echarts-gl'
+
+
 
 // *** 类型推断 ***
 declare module 'vue' {
@@ -39,6 +63,7 @@ app.config.globalProperties.$name = '全局名称'
 app.config.globalProperties.$bool = true
 app.config.globalProperties.$Mitt = Mitt
 app.config.globalProperties.$filters = filters
+app.config.globalProperties.$echarts = echarts
 
 console.log('Vue实例：', app)
 
