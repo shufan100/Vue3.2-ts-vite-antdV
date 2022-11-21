@@ -24,7 +24,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // // dev 独有配置
   return {
     root, //项目根目录（index.html 文件所在的位置） 默认： process.cwd()
-    base: '/SHU/', //  开发或生产环境服务的公共基础路径：默认'/'   1、绝对 URL 路径名： /foo/；  2、完整的 URL： https://foo.com/； 3、空字符串或 ./（用于开发环境）
+    base: '/', //  开发或生产环境服务的公共基础路径：默认'/'   1、绝对 URL 路径名： /foo/；  2、完整的 URL： https://foo.com/； 3、空字符串或 ./（用于开发环境）
     publicDir: resolve(__dirname, './dist'), //默认'public'  作为静态资源服务的文件夹  (打包public文件夹会没有，里面得东西会直接编译在dist文件下)
     assetsInclude: resolve(__dirname, './src/assets'), // 静态资源处理
     // ******插件配置******
