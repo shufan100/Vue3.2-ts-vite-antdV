@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { useAppStore } from '@/store/modules/app'
 import { useUserStore } from '@/store/modules/user'
-import { storeToRefs } from 'pinia';
+import { storeToRefs } from 'pinia'; //解构
 const appStore = useAppStore()
 const userStroe = useUserStore()
 const {appName,current} = storeToRefs(appStore)  //解构，具备响应式
@@ -45,6 +45,9 @@ const input = ():void=>{
   appStore.setAppName(val.value)
   // console.log(appName.value,current.value,'----')
 }
+// setTimeout(() => {
+//   appStore.$patch({current:appStore.current - 2000})
+// }, 5000);
 // 方式3 (实例上$patch方法可以批量修改多个值)
 const divide3 = (num:number):void =>{
   appStore.$patch({current:appStore.current - num})
