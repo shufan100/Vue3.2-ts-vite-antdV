@@ -1,8 +1,16 @@
+<!--
+ * @Author: shufan100 1549248097@qq.com
+ * @Date: 2022-12-05 17:55:08
+ * @LastEditors: shufan100 1549248097@qq.com
+ * @LastEditTime: 2022-12-05 19:01:31
+ * @FilePath: \Vue3.2_ts_vite_antd\src\components\StoreCom\index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div style="margin-top: 30px">
     <h2>Pinia全局状态管理</h2>
     <div>
-      <h4>Pinia（AppStore模块）</h4>
+      <h4>Pinia（AppStore模块--做了数据持久化）</h4>
       <p>Pinia（使用）：{{ appStore.appName }} -- {{ appStore.current }}</p>
       <p>Pinia（解构使用）：{{ appName }} -- {{ current }}</p>
       <p>Pinia（getters）：{{ appStore.getAppName }} -- {{ appStore.getCurrent }}</p>
@@ -17,7 +25,7 @@
       </p>
     </div>
     <div>
-      <h4>Pinia（userStroe模块）</h4>
+      <h4>Pinia（userStroe模块--没做）</h4>
       <p>Pinia（使用）：{{ userStroe.userName }} -- {{ userStroe.current }}</p>
       <p>Pinia（getters）：{{ userStroe.getuserName }} -- {{ userStroe.getCurrent }}</p>
      <p>Pinia（actions）：

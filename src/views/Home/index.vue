@@ -2,7 +2,7 @@
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-10-23 14:52:59
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-12-05 10:26:34
+ * @LastEditTime: 2022-12-05 18:55:09
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\src\views\Home\index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -11,6 +11,7 @@
     <h2>首页--home</h2>
     <a-button type="primary">1111</a-button>
     <a-button color="warning">32</a-button>
+    <!-- <p>{{ $omitTextPlugin('xxxxxxzfaffa') }}</p> -->
     <div>
       <h3 style="color: red">1、读取ts文件</h3>
       &nbsp;&nbsp;&nbsp;&nbsp;1、 {{ ggs() }}

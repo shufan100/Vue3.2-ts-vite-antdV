@@ -2,7 +2,7 @@
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-12-05 13:47:27
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-12-05 17:22:32
+ * @LastEditTime: 2022-12-05 18:14:11
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\build\plugin\index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -14,7 +14,7 @@ import vue from '@vitejs/plugin-vue';
 
 import vueJsx from '@vitejs/plugin-vue-jsx' //tsx插件引入
 import AutoImport from 'unplugin-auto-import/vite' //自动引入ref,reactive等等等
-// 配置antd-v按需加载
+// 配置antd-v按需加载（自定义组件也不需要引了）
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
