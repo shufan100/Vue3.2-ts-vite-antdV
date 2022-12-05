@@ -2,7 +2,7 @@
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-10-23 14:52:59
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-11-17 14:03:33
+ * @LastEditTime: 2022-12-05 17:28:44
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\index.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,7 +12,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue3.2</title>
+    <!-- 不让index使用缓存，因为，需要实时更新 -->
+    <meta name="Cache-Control" content="no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0" />
+    <title><%= title1 %></title>
   </head>
   <body>
     <div id="app"></div>
