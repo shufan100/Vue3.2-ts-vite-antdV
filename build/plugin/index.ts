@@ -1,8 +1,32 @@
 /*
+ *                                                     __----~~~~~~~~~~~------___
+ *                                    .  .   ~~//====......          __--~ ~~
+ *                    -.            \_|//     |||\\  ~~~~~~::::... /~
+ *                 ___-==_       _-~o~  \/    |||  \\            _/~~-
+ *         __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+ *     _-~~     .=~    |  \\-_    '-~7  /-   /  ||    \      /
+ *   .~       .~       |   \\ -_    /  /-   /   ||      \   /
+ *  /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+ *  |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+ *           '         ~-|      /|    |-~\~~       __--~~
+ *                       |-~~-_/ |    |   ~\_   _-~            /\
+ *                            /  \     \__   \/~                \__
+ *                        _--~ _/ | .-~~____--~-/                  ~~==.
+ *                       ((->/~   '.|||' -_|    ~~-/ ,              . _||
+ *                                  -_     ~\      ~~---l__i__i__i--~~_/
+ *                                  _-~-__   ~)  \--______________--~~
+ *                                //.-~~~-~_--~- |-------~~~~~~~~
+ *                                       //.-~~~--\
+ *                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * 
+ *                               神兽保佑            永无BUG
+ */
+
+/*
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-12-05 13:47:27
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-12-05 18:14:11
+ * @LastEditTime: 2022-12-06 17:01:47
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\build\plugin\index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -76,7 +100,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     viteBuild(viteEnv, isBuild),
     // 打包进度条(bug:不显示打包的文件)
     vitePluginProgress(),
-    // rollup-plugin-visualizer(打包后的视图文件)
+    // r`ollup-plugin-visualizer`(打包后的视图文件)
     visualizer({
       filename: './node_modules/.cache/visualizer/stats.html',
       open: true,
