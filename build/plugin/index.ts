@@ -84,6 +84,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
           ]
         }
       ],
+      dirs: ['./src/api'], // 本地模块api，可以不用引
       dts: 'types/auto-import.d.ts' //生成全局引入的文件
     }),
     // 自动按需引入UI,
