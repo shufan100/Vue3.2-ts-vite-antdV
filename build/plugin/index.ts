@@ -89,6 +89,14 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     }),
     // 自动按需引入UI,
     Components({
+      // 指定组件位置，默认是src/components
+      dirs: ['src/types/components'],
+      // // ui库解析器
+      // // resolvers: [ElementPlusResolver()],
+      // // extensions: ['vue'],
+      // // 配置文件生成位置
+      // dts: 'src/types/components.d.ts',
+      // dirs: ['src/types/components'], // 配置需要默认导入的自定义组件文件夹，该文件夹下的所有组件都会自动 import
       resolvers: [
         AntDesignVueResolver({
           importStyle: 'less' //修改antdv主题色
