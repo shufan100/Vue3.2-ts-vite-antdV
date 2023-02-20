@@ -1,8 +1,32 @@
 /*
+ *                                                     __----~~~~~~~~~~~------___
+ *                                    .  .   ~~//====......          __--~ ~~
+ *                    -.            \_|//     |||\\  ~~~~~~::::... /~
+ *                 ___-==_       _-~o~  \/    |||  \\            _/~~-
+ *         __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+ *     _-~~     .=~    |  \\-_    '-~7  /-   /  ||    \      /
+ *   .~       .~       |   \\ -_    /  /-   /   ||      \   /
+ *  /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+ *  |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+ *           '         ~-|      /|    |-~\~~       __--~~
+ *                       |-~~-_/ |    |   ~\_   _-~            /\
+ *                            /  \     \__   \/~                \__
+ *                        _--~ _/ | .-~~____--~-/                  ~~==.
+ *                       ((->/~   '.|||' -_|    ~~-/ ,              . _||
+ *                                  -_     ~\      ~~---l__i__i__i--~~_/
+ *                                  _-~-__   ~)  \--______________--~~
+ *                                //.-~~~-~_--~- |-------~~~~~~~~
+ *                                       //.-~~~--\
+ *                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * 
+ *                               神兽保佑            永无BUG
+ */
+
+/*
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-12-05 13:47:27
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-12-05 18:14:11
+ * @LastEditTime: 2022-12-06 17:01:47
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\build\plugin\index.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -58,10 +82,19 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
           ]
         }
       ],
+      dirs: ['./src/api'], // 本地模块api，可以不用引
       dts: 'types/auto-import.d.ts' //生成全局引入的文件
     }),
     // 自动按需引入UI,
     Components({
+      // 指定组件位置，默认是src/components
+      dirs: ['src/types/components'],
+      // // ui库解析器
+      // // resolvers: [ElementPlusResolver()],
+      // // extensions: ['vue'],
+      // // 配置文件生成位置
+      // dts: 'src/types/components.d.ts',
+      // dirs: ['src/types/components'], // 配置需要默认导入的自定义组件文件夹，该文件夹下的所有组件都会自动 import
       resolvers: [
         AntDesignVueResolver({
           importStyle: 'less' //修改antdv主题色
@@ -73,6 +106,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     // vite编译
     viteBuild(viteEnv, isBuild)
     // 打包进度条(bug:不显示打包的文件)
+<<<<<<< HEAD
     // vitePluginProgress(),
     // // rollup-plugin-visualizer(打包后的视图文件)
     // visualizer({
@@ -82,6 +116,17 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     //   brotliSize: true
     // })
   ]
+=======
+    vitePluginProgress(),
+    // r`ollup-plugin-visualizer`(打包后的视图文件)
+    visualizer({
+      filename: './node_modules/.cache/visualizer/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true
+    }),
+  ];
+>>>>>>> 44220db749da796d70b335c176b6822d0d0e3dd4
 
   // ******************************************打包压缩*****************************************
   if (isBuild) {

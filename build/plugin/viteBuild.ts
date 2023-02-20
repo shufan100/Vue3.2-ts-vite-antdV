@@ -2,7 +2,7 @@
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-12-05 14:11:52
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2022-12-05 15:53:28
+ * @LastEditTime: 2022-12-06 17:10:28
  * @FilePath: \Vue3.2-ts-vite-pinia-antdv\build\plugin\html.ts
  * @Description: 编译包大小，编译时间
  */
@@ -43,6 +43,7 @@ export function viteBuild(env: ViteEnv, isBuild: boolean) {
         recursiveDirectory(staticPath, () => {
           let total = fileListTotal.reduce((prev, next) => prev + next)
           console.log(`--恭喜打包完成🎉🎉🎉：（总用时${dayjs.duration(endTime.diff(startTime)).format('mm分ss秒')}，打包后的大小为${formatBytes(total)}）`)
+
         })
       }
     }
