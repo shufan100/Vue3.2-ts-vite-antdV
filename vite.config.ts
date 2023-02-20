@@ -2,18 +2,16 @@ import { defineConfig, loadEnv } from 'vite'
 import type { UserConfig, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-
 // import path from 'path';
 import { resolve, join } from 'path'
-// 
+//
 import { wrapperEnv } from './build/utils'
 // 插件
-import { createVitePlugins } from './build/plugin';
+import { createVitePlugins } from './build/plugin'
 
 // defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
-
-  /** 
+  /**
    * vite默认不加载.env文件，
    */
   const root: string = process.cwd() // 通过process获取路径
@@ -28,7 +26,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   // command: 开发serve  生产build
   const isBuild: boolean = command === 'build'
 
-  // // dev 独有配置
   return {
     root, //项目根目录（index.html 文件所在的位置） 默认： process.cwd()
     base: '/', //  开发或生产环境服务的公共基础路径：默认'/'   1、绝对 URL 路径名： /foo/；  2、完整的 URL： https://foo.com/； 3、空字符串或 ./（用于开发环境）
@@ -76,19 +73,19 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       outDir: 'dist', // 编译输出的路径  默认：dist
       assetsDir: 'assets', // 静态资源的存放路径 默认assets
       assetsInlineLimit: 4096, // 导入和引用的资源小于4kb将内联成base64编码  默认(4kb)
-      cssCodeSplit: false,  // css代码拆分，false css会被提取到一个css文件中。  默认true
+      cssCodeSplit: false, // css代码拆分，false css会被提取到一个css文件中。  默认true
       cssTarget: 'chrome61', //编译css的兼容目标 防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式  (要兼容的场景是安卓微信中的 webview 时,它不支持 CSS 中的 #RGBA 十六进制颜色符号)
       sourcemap: false, //构建后是否生成 source map 文件
       minify: 'esbuild', // 项目压缩 :boolean | 'terser' | 'esbuild'
       brotliSize: true, // 启用/禁用 brotli 压缩大小报告。 禁用该功能可能会提高大型项目的构建性能
       chunkSizeWarningLimit: 1000, //chunk 大小警告的限制（以 kbs 为单位）默认：500
-      reportCompressedSize: true, // gzip压缩大小报告
+      reportCompressedSize: true // gzip压缩大小报告
       // rollupOptions:{} //自定义底层rollup打包配置，并将与vite的内部rollup选项合并。
       // commonjsOptions:{} // plugin-commonjs插件配置
       // dynamicImportVarsOptions:{} //pulgin-dynamic-import-vars插件配置
     },
 
-    // 插件
+    // ******插件******
     plugins: createVitePlugins(viteEnv, isBuild),
     // ******打印+debugger清除配置******
     esbuild: {
@@ -97,7 +94,7 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     // 可在vite编译的时候将环境变量+固定数据编译到项目里
     define: {
       __APP_INFO__: {
-        name: "SHUF"
+        name: 'SHUF'
       }
     },
     css: {
@@ -124,6 +121,13 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
           }
         }
       }
+    },
+    // 依赖优化
+    optimizeDeps: {
+      // 默认情况下，不在 node_modules 中的，链接的包不会被预构建。使用include选项可强制预构建链接的包
+      include: ['@vue/runtime-core', '@vue/shared', 'ant-design-vue/es/locale/zh_CN', 'ant-design-vue/es/locale/en_US'],
+      // 在预构建中强制排除的依赖项
+      exclude: []
     }
   }
 })
