@@ -58,6 +58,8 @@ const routes: Array<RouteRecordRaw> = [
 
 const router = createRouter({
   history: createWebHistory(), //hash模式：createWebHashHistory，history模式：createWebHistory
-  routes
+  routes,
+  strict: true,
+  scrollBehavior: () => ({ left: 0, top: 0 })
 })
 export default router

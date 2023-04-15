@@ -106,7 +106,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     // vite编译
     viteBuild(viteEnv, isBuild)
     // 打包进度条(bug:不显示打包的文件)
-<<<<<<< HEAD
     // vitePluginProgress(),
     // // rollup-plugin-visualizer(打包后的视图文件)
     // visualizer({
@@ -116,17 +115,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     //   brotliSize: true
     // })
   ]
-=======
-    vitePluginProgress(),
-    // r`ollup-plugin-visualizer`(打包后的视图文件)
-    visualizer({
-      filename: './node_modules/.cache/visualizer/stats.html',
-      open: true,
-      gzipSize: true,
-      brotliSize: true
-    }),
-  ];
->>>>>>> 44220db749da796d70b335c176b6822d0d0e3dd4
+
 
   // ******************************************打包压缩*****************************************
   if (isBuild) {
