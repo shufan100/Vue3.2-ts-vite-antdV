@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "serve": "npm run dev",
     "dev": "vite",
     "build:dev": "vite build  --mode development",
     "build:uat": "vite build  --mode uat",
