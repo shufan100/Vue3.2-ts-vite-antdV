@@ -7,8 +7,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    A: typeof import('./src/components/DynamicCom/A.vue')['default']
-    A1: typeof import('./src/components/Mitt/A1.vue')['default']
     AButton: typeof import('ant-design-vue/es')['Button']
     AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
     AInput: typeof import('ant-design-vue/es')['Input']
@@ -18,26 +16,7 @@ declare module '@vue/runtime-core' {
     ARangePicker: typeof import('ant-design-vue/es')['RangePicker']
     ATimePicker: typeof import('ant-design-vue/es')['TimePicker']
     ATimeRangePicker: typeof import('ant-design-vue/es')['TimeRangePicker']
-    B: typeof import('./src/components/DynamicCom/B.vue')['default']
-    B1: typeof import('./src/components/Mitt/B1.vue')['default']
-    BindStyle: typeof import('./src/components/BindStyle/index.vue')['default']
-    Bus: typeof import('./src/components/Bus/index.vue')['default']
-    BusEmit: typeof import('./src/components/Bus/BusEmit.vue')['default']
-    BusOn: typeof import('./src/components/Bus/BusOn.vue')['default']
-    Directive: typeof import('./src/components/Directive/index.vue')['default']
-    DynamicCom: typeof import('./src/components/DynamicCom/index.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    Mitt: typeof import('./src/components/Mitt/index.vue')['default']
-    Modal: typeof import('./src/components/Teleport/Modal.vue')['default']
-    NextTick: typeof import('./src/components/NextTick/index.vue')['default']
-    PropsChild: typeof import('./src/components/PropsCom/PropsChild.vue')['default']
-    PropsCom: typeof import('./src/components/PropsCom/index.vue')['default']
-    ProvideOrInject: typeof import('./src/components/ProvideOrInject/index.vue')['default']
-    ReactiveDemo: typeof import('./src/components/reactiveDemo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    StoreCom: typeof import('./src/components/StoreCom/index.vue')['default']
-    Teleport: typeof import('./src/components/Teleport/index.vue')['default']
-    TorefDemo: typeof import('./src/components/torefDemo.vue')['default']
   }
 }

@@ -79,8 +79,26 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       minify: 'esbuild', // 项目压缩 :boolean | 'terser' | 'esbuild'
       brotliSize: true, // 启用/禁用 brotli 压缩大小报告。 禁用该功能可能会提高大型项目的构建性能
       chunkSizeWarningLimit: 1000, //chunk 大小警告的限制（以 kbs 为单位）默认：500
-      reportCompressedSize: true // gzip压缩大小报告
+      reportCompressedSize: true, // gzip压缩大小报告
       // rollupOptions:{} //自定义底层rollup打包配置，并将与vite的内部rollup选项合并。
+      rollupOptions: {
+        output: {
+          // 最小化拆分包
+          // manualChunks: (id: string) => {
+          //   if (id.includes('node_modules')) {
+          //     return id.toString().split('node_modules/')[1].split('/')[0].toString()
+          //   }
+          // },
+          /** 打包资源按文件夹 */
+          // 用于从入口点创建的块的打包输出格式[name]表示文件名,[hash]表示该文件内容hash值
+          entryFileNames: 'js/[name].[hash].js',
+          // 用于命名代码拆分时创建的共享块的输出命名
+          chunkFileNames: 'js/[name].[hash].js',
+          // 用于输出静态资源的命名，[ext]表示文件扩展名
+          assetFileNames: '[ext]/[name].[hash].[ext]'
+        }
+      }
+
       // commonjsOptions:{} // plugin-commonjs插件配置
       // dynamicImportVarsOptions:{} //pulgin-dynamic-import-vars插件配置
     },
