@@ -7,22 +7,21 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
-declare type Recordable<T = any> = Record<string, T>
-
 declare global {
   const __APP_INFO__: {
     name: string
   }
   interface ImportMetaEnv extends ViteEnv {
-    __: unknown;
+    __: unknown
   }
-
 }
+declare type Recordable<T = any> = Record<string, T>
 declare interface ViteEnv {
-  VITE_DROP_CONSOLE: boolean;
-  VITE_GLOB_APP_TITLE: string;
-  VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none';
-  // VITE_PORT: number;
+  VITE_PORT: number
+  VITE_PUBLIC_BASE: string
+  VITE_DROP_CONSOLE: boolean
+  VITE_GLOB_APP_TITLE: string
+  VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
   // VITE_USE_MOCK: boolean;
   // VITE_USE_PWA: boolean;
   // VITE_PUBLIC_PATH: string;
@@ -35,4 +34,4 @@ declare interface ViteEnv {
   // VITE_GENERATE_UI: string;
 }
 
-declare module 'figlet';
+// declare module 'figlet'

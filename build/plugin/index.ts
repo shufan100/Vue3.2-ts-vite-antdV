@@ -33,12 +33,11 @@
 
 import { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx' //tsx插件引入
 
 //-----------------------------------快捷引入------------------------------------
-
-import vueJsx from '@vitejs/plugin-vue-jsx' //tsx插件引入
 import AutoImport from 'unplugin-auto-import/vite' //自动引入ref,reactive等等等
-// 配置antd-v按需加载（自定义组件也不需要引了）
+// 配置antd-v自动按需引入（自定义组件也会自动引）
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
@@ -53,7 +52,7 @@ import { vitePluginCompression } from './vitePluginCompression'
 //-----------------------------------编译------------------------------------
 // 打包时间、包大小、炫酷字体
 import { viteBuild } from './viteBuild'
-// vite-plugin-progress (打包进度条)
+// 打包进度条
 // import vitePluginProgress from 'vite-plugin-progress'
 // 打包分析
 // import { visualizer } from 'rollup-plugin-visualizer'
@@ -85,15 +84,15 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
       dirs: ['./src/api'], // 本地模块api，可以不用引
       dts: 'types/auto-import.d.ts' //生成全局引入的文件
     }),
-    // 自动按需引入UI,
+    // 自动引入UI和组件
     Components({
       // 指定组件位置，默认是src/components
-      dirs: ['src/types/components'],
+      // dirs: ['types/components'],
       // // ui库解析器
       // // resolvers: [ElementPlusResolver()],
       // // extensions: ['vue'],
       // // 配置文件生成位置
-      // dts: 'src/types/components.d.ts',
+      dts: 'types/components.d.ts',
       // dirs: ['src/types/components'], // 配置需要默认导入的自定义组件文件夹，该文件夹下的所有组件都会自动 import
       resolvers: [
         AntDesignVueResolver({
@@ -122,7 +121,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     // vite-plugin-html（压缩html）
     vitePlugins.push(viteHtmlPlugin(viteEnv, isBuild))
     // vite-plugin-imagemin（压缩img）
-    vitePlugins.push(vitePluginImagemin())
+    // vitePlugins.push(vitePluginImagemin())
     // vite-plugin-compression（使用gizp 或 brotii 压缩资源）
     vitePlugins.push(vitePluginCompression(VITE_BUILD_COMPRESS, false))
   }

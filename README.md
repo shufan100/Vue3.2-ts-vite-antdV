@@ -1,22 +1,25 @@
 # Vue 3 + TypeScript + Vite + antdV
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run dev
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
-
 # 目录结构
+
 ```bash
 # ├─ public                     # 静态资源服务的文件夹
 # │   └─ favicon.ico            # favicon图标

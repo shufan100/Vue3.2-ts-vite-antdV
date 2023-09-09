@@ -8,14 +8,12 @@
  */
 import { defineStore } from 'pinia'
 import enums from '../enums'
+import type { AppType } from '../types'
 
-interface AppsInter {
-  appName: string
-  current: number
-}
+
 
 export const useAppStore = defineStore(enums.APPS, {
-  state: (): AppsInter => ({
+  state: (): AppType => ({
     appName: 'app',
     current: 200
   }),

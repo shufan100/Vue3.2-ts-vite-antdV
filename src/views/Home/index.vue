@@ -66,16 +66,16 @@
 <script lang="ts" setup>
 import { ComponentInternalInstance } from 'vue'
 
-import DynamicCom from '@/components/DynamicCom/index.vue'
-import BusCom from '@/components/Bus/index.vue'
-import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
-import MittCom from '@/components/Mitt/index.vue'
-import TsxCom from '@/components/TsxCom/index'
-import PropsCom from '@/components/PropsCom/index.vue'
-import DirectiveCom from '@/components/Directive/index.vue'
-import BindStyle from '@/components/BindStyle/index.vue'
-import NextTickCom from '@/components/NextTick/index.vue'
-import StoreCom from '@/components/StoreCom/index.vue'
+// import DynamicCom from '@/components/DynamicCom/index.vue'
+// import BusCom from '@/components/Bus/index.vue'
+// import ProvideOrInject from '@/components/ProvideOrInject/index.vue'
+// import MittCom from '@/components/Mitt/index.vue'
+// import TsxCom from '@/components/TsxCom/index'
+// import PropsCom from '@/components/PropsCom/index.vue'
+// import DirectiveCom from '@/components/Directive/index.vue'
+// import BindStyle from '@/components/BindStyle/index.vue'
+// import NextTickCom from '@/components/NextTick/index.vue'
+// import StoreCom from '@/components/StoreCom/index.vue'
 import { ggs } from '@/utils'
 import type { Dayjs } from 'dayjs';
 type RangeValue = [Dayjs, Dayjs];
