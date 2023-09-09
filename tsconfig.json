@@ -1,38 +1,39 @@
 {
   "compilerOptions": {
-    "strict": true, /* 严格模式检查的总开关，底下的不用写了. */
-    "target": "esnext",   /* 用来指定ts被编译为的es版本: 'ES3' (默认), 'ES5', 'ES6/ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
-    "module": "esnext",  /* 指定要使用的模块化的规范（将引入的文件编译成什么版本）: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015/es6', 'es2020', or 'ESNext'. */
-    "useDefineForClassFields": true, 
-    "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "strict": true /* 严格模式检查的总开关，底下的不用写了. */,
+    "target": "esnext" /* 用来指定ts被编译为的es版本: 'ES3' (默认), 'ES5', 'ES6/ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+    "module": "esnext" /* 指定要使用的模块化的规范（将引入的文件编译成什么版本）: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015/es6', 'es2020', or 'ESNext'. */,
+    "useDefineForClassFields": true,
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     // vue jsx配置
     "jsx": "preserve",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
-    // 
-    "sourceMap": true,  //生成相应映射的".map文件"
+    //
+    "sourceMap": true, //生成相应映射的".map文件"
     "resolveJsonModule": true,
-    "isolatedModules": true,  //将每个文件转换为单独的模块(类似于'ts.transpileModule') 
-    "esModuleInterop": true,  //通过为所有导入创建名称空间对象，在CommonJS和ES模块之间实现互操作性。 意味着“allowSyntheticDefaultImports” 
-    "lib": ["esnext", "dom"], /* 用来指定项目中要使用的库. */
-    "skipLibCheck": true,  //跳过声明文件的类型检查
-    
-    "baseUrl": "./",  //用于解析非绝对模块名的基本目录 
-    "paths":{
+    "isolatedModules": true, //将每个文件转换为单独的模块(类似于'ts.transpileModule')
+    "esModuleInterop": true, //通过为所有导入创建名称空间对象，在CommonJS和ES模块之间实现互操作性。 意味着“allowSyntheticDefaultImports”
+    "lib": ["esnext", "dom"] /* 用来指定项目中要使用的库. */,
+    "skipLibCheck": true, //跳过声明文件的类型检查
+
+    "baseUrl": "./", //用于解析非绝对模块名的基本目录
+    "paths": {
       "@/*": ["src/*"],
-      "#": ["types"],
-    }
+      "#": ["types"]
+    },
+    "types": ["vite/client"] //处理 类型“ImportMeta”上不存在属性“globEager”
   },
-  "include": [ 
+  "include": [
     "**/*.ts",
 
     "src/**/*.ts",
-    "src/**/*.tsx", 
-    "src/**/**/*.tsx", 
+    "src/**/*.tsx",
+    "src/**/**/*.tsx",
     "src/**/*.vue",
     "src/**/**/*.vue", //根据文件夹深度定义，不然超出的会读不到
-    "src/**/*.d.ts", 
-  
+    "src/**/*.d.ts",
+
     "tests/**/*.ts",
 
     "types/**/*.d.ts",
@@ -44,8 +45,6 @@
     "mock/**/*.ts",
     "vite.config.ts"
   ],
-  "exclude": ["node_modules",  "dist", "**/*.js"]
+  "exclude": ["node_modules", "dist", "**/*.js"]
   // "references": [{ "path": "./tsconfig.node.json" }]
 }
-
-

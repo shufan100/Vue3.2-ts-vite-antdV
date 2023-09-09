@@ -6,6 +6,11 @@
   3. store 增加 types 类型定义文件
   4. 环境变量优化
 
+## 待处理问题
+
+1. 图片压缩插件未安装
+2.
+
 ## 问题
 
 1. resolve 方法找不到？
@@ -26,5 +31,9 @@
 6. vue 文件内 引用 ts 文件，路径提示找不到？
    1、tsconfig.json 配置：baseUrl 和 path
    2、开一下引入其他文件的再打开就会取消提示
+
 7. 引入 vue 文件提示找不到模块？
    1、关闭重新打开
+
+8. 类型“ImportMeta”上不存在属性“globEager”?
+   1、tsconfog.json 配置 "types": ["vite/client"]
