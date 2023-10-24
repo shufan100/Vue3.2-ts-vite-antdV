@@ -12,7 +12,6 @@ declare module '@vue/runtime-core' {
     AButton: typeof import('ant-design-vue/es')['Button']
     AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
     AInput: typeof import('ant-design-vue/es')['Input']
-    AMenu: typeof import('ant-design-vue/es')['Menu']
     APagination: typeof import('ant-design-vue/es')['Pagination']
     ARadio: typeof import('ant-design-vue/es')['Radio']
     ARadioGroup: typeof import('ant-design-vue/es')['RadioGroup']

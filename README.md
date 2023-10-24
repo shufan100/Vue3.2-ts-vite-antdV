@@ -62,3 +62,5 @@ npm run build
 # └── tsconfig.node.json        # tsconfig.node.json
 # └── vite.config               # vite配置
 ```
+
+## 功能
